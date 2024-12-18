@@ -39,13 +39,14 @@ def имя = значение; <br/>
 ## 3. Описание команд для сборки проекта.<br/>
 ## 4. Примеры использования 
 ## 5. Результаты тестирования<br/>
-C:\Users\Taisi\PycharmProjects\Config_Dz3\.venv\Scripts\python.exe "D:/PyCharm Community Edition 2024.3/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py" --path C:\Users\Taisi\PycharmProjects\Config_Dz3\test.py 
-Testing started at 0:07 ...
-Launching unittests with arguments python -m unittest C:\Users\Taisi\PycharmProjects\Config_Dz3\test.py in C:\Users\Taisi\PycharmProjects\Config_Dz3
+C:\Users\Taisi\PycharmProjects\ConfigDZ3\.venv\Scripts\python.exe "D:/PyCharm Community Edition 2024.3/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py" --path C:\Users\Taisi\PycharmProjects\ConfigDZ3\test.py 
+Testing started at 3:02 ...
+Launching unittests with arguments python -m unittest C:\Users\Taisi\PycharmProjects\ConfigDZ3\test.py in C:\Users\Taisi\PycharmProjects\ConfigDZ3
 
-Ran 5 tests in 0.002s
+Ran 9 tests in 0.005s
 
 OK
 
 Process finished with exit code 0
-![image](https://github.com/user-attachments/assets/b895564b-3468-473a-a2fa-6b45bb464878)
+![image](https://github.com/user-attachments/assets/fe0daaba-9ebd-41cc-8cb7-2f9fc61f0e9e)
+
