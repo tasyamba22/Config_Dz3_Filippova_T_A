@@ -31,7 +31,9 @@ def имя = значение; <br/>
 3. Умножение.<br/>
 4. Деление.<br/>
 5. concat().<br/>
-Все конструкции учебного конфигурационного языка (с учетом их возможной вложенности) должны быть покрыты тестами. Необходимо показать 3 примера описания конфигураций из разных предметных областей. <br/>
+
+Все конструкции учебного конфигурационного языка (с учетом их возможной вложенности) должны быть покрыты тестами. Необходимо показать 3 примера
+описания конфигураций из разных предметных областей. <br/>
 ***
 
 ## 1. Общее описание<br/>
@@ -42,13 +44,18 @@ def имя = значение; <br/>
 **Основные функции:** <br/> 
 1. `compute_expression(expression)` <br/> 
 Вычисляет значение константного выражения в префиксной форме.<br/> 
-Поддерживаемые операции: +, -, *, /, concat().<br/> 
+Поддерживаемые операции:<br/> 
+  -   + — Сложение чисел.<br/> 
+  -   - — Вычитание.<br/> 
+  -   * — Умножение.<br/> 
+  -   / — Деление (с проверкой на деление на 0).<br/> 
+  -   concat() — Конкатенация строк.<br/> 
 Пример: ^{+ 3 2} вернет 5.<br/> 
 2. `process_dict(d)`<br/>
 Преобразует словари из формата YAML в формат '[ ключ : значение; ] <br/>
 Пример: {a: 1, b: 2} → '[ a : 1; b : 2; ]
 3. `process_list(lst)`<br/>
-Преобразует списки из YAML в формат '( значение значение значение ... )'.<br/>
+Преобразует списки из YAML в формат '( значение значение значение ... ).<br/>
 4. `process_value(value)`<br/>
 Определяет тип значения и вызывает соответствующую функцию для обработки:<br/> 
 Строки: обрабатывает числа, строки, а также константные выражения.<br/>
@@ -74,13 +81,13 @@ def имя = значение; <br/>
 ![image](https://github.com/user-attachments/assets/1b17afa1-98bc-46a0-9fc2-d83162af9abe)
 ## 4. Результаты тестирования<br/>
 C:\Users\Taisi\PycharmProjects\ConfigDZ3\.venv\Scripts\python.exe "D:/PyCharm Community Edition 2024.3/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py" --path C:\Users\Taisi\PycharmProjects\ConfigDZ3\test.py 
-Testing started at 3:02 ...
+Testing started at 0:08 ...
 Launching unittests with arguments python -m unittest C:\Users\Taisi\PycharmProjects\ConfigDZ3\test.py in C:\Users\Taisi\PycharmProjects\ConfigDZ3
 
-Ran 9 tests in 0.005s
+Ran 11 tests in 0.006s
 
 OK
 
-Process finished with exit code 0
-![image](https://github.com/user-attachments/assets/fe0daaba-9ebd-41cc-8cb7-2f9fc61f0e9e)
+Process finished with exit code 00
 
+![image](https://github.com/user-attachments/assets/377ebafa-d9d3-4a3e-8079-e976a0cbce99)
