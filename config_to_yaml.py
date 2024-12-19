@@ -4,11 +4,8 @@ import yaml
 
 # Константные операции
 def compute_expression(expression):
-    """
-    Вычисление константного выражения в префиксной форме.
-    Поддержка операций: +, -, *, /, concat.
-    """
-    import re  # Для обработки строк в операции concat
+    #Вычисление константного выражения в префиксной форме.
+    #Поддержка операций: +, -, *, /, concat.
 
     tokens = expression.split()
     if len(tokens) < 3:
@@ -26,19 +23,18 @@ def compute_expression(expression):
 
         # Выполняем вычисления
         if operator == '+':
-            return sum(numbers)
+            return str(sum(numbers))
         elif operator == '-':
-            return numbers[0] - numbers[1]
+            return str(numbers[0] - numbers[1])
         elif operator == '*':
             result = 1
             for num in numbers:
                 result *= num
-            return result
+            return str(result)
         elif operator == '/':
             if numbers[1] == 0:
                 raise ZeroDivisionError("Деление на ноль")
-            return numbers[0] / numbers[1]
-
+            return str(numbers[0] / numbers[1])
     elif operator == 'concat':
         # Убираем кавычки из аргументов и соединяем
         strings = [re.sub(r"^['\"]|['\"]$", '', arg) for arg in arguments]
@@ -47,29 +43,24 @@ def compute_expression(expression):
     else:
         raise ValueError(f"Неизвестная операция: {operator}")
 
-
 # Обработка словарей
 def process_dict(d):
-    """Преобразование словаря в формат '[ ключ : значение; ]'"""
+    # Преобразование словаря в формат '[ ключ : значение; ]
     result = "'["
     for key, value in d.items():
         result += f" {key} : {process_value(value)};"
     result += " ]"
     return result
 
-
-
-
 # Обработка массивов
 def process_list(lst):
-    """Преобразование списка в формат с переносами строк."""
-    #values = ' '.join(process_value(item) for item in lst)
-    #return f" '( {values} )"
-    values = ''.join(process_value(item) for item in lst)
-    return f"'(\n    {values}\n  )"
+    # Преобразование списка в формат с переносами строк.
+    values = ' '.join(process_value(item) for item in lst)
+    return f"'( {values} )"
+
 
 def process_value(value):
-    """Преобразование значений в целевой формат"""
+    # Преобразование значений в целевой формат
     if isinstance(value, str):
         if re.match(r'^\^\{.*\}$', value):  # Константное выражение
             expression = value[2:-1]
@@ -83,14 +74,14 @@ def process_value(value):
             try:
                 # Проверка на число с плавающей точкой
                 float_value = float(value)
-                return str(float_value)  # Возвращаем число с плавающей точкой
+                return str(float_value)  # Возвращаем число
             except ValueError:
                 return f'"{value}"'  # Если это не число, возвращаем строку в кавычках
     elif isinstance(value, (int, float)):  # Если это число
         # Если это целое число, выводим как целое
         if isinstance(value, int):
             return str(value)
-        return str(value)  # Если это float, выводим как есть
+        return str(value)
     elif isinstance(value, list):
         return process_list(value)  # Массив
     elif isinstance(value, dict):
@@ -98,15 +89,9 @@ def process_value(value):
     else:
         raise ValueError(f"Неизвестное значение: {value}")
 
-
-
-
-
-
-
 # Генерация конфигурации
 def generate_config(yaml_input):
-    """Генерация выходного текста на учебном конфигурационном языке"""
+    # Генерация выходного текста на учебном конфигурационном языке
     output = ""
     for key, value in yaml_input.items():
         if key.startswith("comment"):  # Однострочные комментарии
@@ -122,13 +107,9 @@ def generate_config(yaml_input):
             output += f"{key} = {process_value(value)}\n"
     return output
 
-
-
-
-
 # Чтение ввода с пустой строкой для завершения
 def main():
-    """Чтение YAML и вывод конфигурации"""
+    # Чтение YAML и вывод конфигурации
     print("Введите текст в формате YAML, закончите ввод пустой строкой и нажатием Enter:")
 
     input_data = ""

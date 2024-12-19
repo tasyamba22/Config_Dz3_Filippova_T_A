@@ -19,7 +19,7 @@ class TestConfigGenerator(unittest.TestCase):
 
     def test_list(self):
         yaml_input = {"values": [1, 2, 3]}
-        expected = "values = ( 1 2 3 )\n"
+        expected = "values = '( 1 2 3 )\n"
         self.assertEqual(generate_config(yaml_input), expected)
 
     def test_comment(self):
