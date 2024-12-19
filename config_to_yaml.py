@@ -93,7 +93,7 @@ def generate_config(yaml_input):
     output = ""
     for key, value in yaml_input.items():
         # Проверка имени ключа
-        if not re.match(r'^[a-z][a-z0-9_]*', key):
+        if not re.match(r'[a-z][a-z0-9_]*', key):
             raise ValueError(f"Некорректное имя ключа: {key}")
         if key.startswith("comment"):  # Однострочные комментарии
             output += f"*> {value}\n"
