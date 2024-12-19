@@ -55,8 +55,8 @@ def process_dict(d):
 # Обработка массивов
 def process_list(lst):
     # Преобразование списка в формат с переносами строк.
-    values = ' '.join(process_value(item) for item in lst)
-    return f"'( {values} )"
+   values = ' '.join(process_value(item) for item in lst)
+   return f"'(\n {values}\n)"
 
 
 def process_value(value):
