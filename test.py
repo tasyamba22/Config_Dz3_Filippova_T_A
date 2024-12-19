@@ -42,6 +42,17 @@ class TestConfigGenerator(unittest.TestCase):
         expected = "settings = '[ window : '[ width : 800; height : 600; ]; theme : \"dark\"; ]\n"
         self.assertEqual(generate_config(yaml_input), expected)
 
+    def test_invalid_key_name(self):
+        yaml_input = {"Invalid-Key": "value"}
+        with self.assertRaises(ValueError) as context:
+            generate_config(yaml_input)
+        self.assertIn("Некорректное имя ключа", str(context.exception))
+
+    def test_valid_key_name(self):
+        yaml_input = {"valid_key123": "value"}
+        expected = "valid_key123 = \"value\"\n"
+        self.assertEqual(generate_config(yaml_input), expected)
+
     def test_compute_expression(self):
         self.assertEqual(compute_expression("+ 2 3"), "5.0")
         self.assertEqual(compute_expression("- 10 3"), "7.0")
@@ -51,3 +62,4 @@ class TestConfigGenerator(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

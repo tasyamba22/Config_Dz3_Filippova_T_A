@@ -6,7 +6,6 @@ import yaml
 def compute_expression(expression):
     #Вычисление константного выражения в префиксной форме.
     #Поддержка операций: +, -, *, /, concat.
-
     tokens = expression.split()
     if len(tokens) < 3:
         raise ValueError("Некорректное константное выражение")
@@ -55,9 +54,8 @@ def process_dict(d):
 # Обработка массивов
 def process_list(lst):
     # Преобразование списка в формат с переносами строк.
-   values = ' '.join(process_value(item) for item in lst)
-   return f"'(\n {values}\n)"
-
+    values = ' '.join(process_value(item) for item in lst)
+    return f"'( {values} )"
 
 def process_value(value):
     # Преобразование значений в целевой формат
@@ -94,6 +92,9 @@ def generate_config(yaml_input):
     # Генерация выходного текста на учебном конфигурационном языке
     output = ""
     for key, value in yaml_input.items():
+        # Проверка имени ключа
+        if not re.match(r'^[a-z][a-z0-9_]*', key):
+            raise ValueError(f"Некорректное имя ключа: {key}")
         if key.startswith("comment"):  # Однострочные комментарии
             output += f"*> {value}\n"
         elif key.startswith("multicomment"):  # Многострочные комментарии
@@ -132,3 +133,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
