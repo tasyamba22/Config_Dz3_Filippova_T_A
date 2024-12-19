@@ -92,7 +92,7 @@ python config_to_yaml.py
 Конфиграция веб-сервира (Область: Разработка программного обеспечения)
 ![Снимок экрана 2024-12-18 043551](https://github.com/user-attachments/assets/b7b7699c-f1b1-412b-8194-405d5954f605)
 Конфигурация игры "Плюс Сити" (Область: Разработка игр)
-![image](https://github.com/user-attachments/assets/1b17afa1-98bc-46a0-9fc2-d83162af9abe)
+![image](https://github.com/user-attachments/assets/1b633747-032a-4c88-af37-286f3b65c1b0)
 ## 5. Результаты тестирования<br/>
 C:\Users\Taisi\PycharmProjects\ConfigDZ3\.venv\Scripts\python.exe "D:/PyCharm Community Edition 2024.3/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py" --path C:\Users\Taisi\PycharmProjects\ConfigDZ3\test.py 
 Testing started at 0:08 ...
