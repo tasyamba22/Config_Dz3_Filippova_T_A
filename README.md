@@ -102,6 +102,6 @@ Ran 11 tests in 0.006s
 
 OK
 
-Process finished with exit code 00
+Process finished with exit code 0
 
 ![image](https://github.com/user-attachments/assets/377ebafa-d9d3-4a3e-8079-e976a0cbce99)
